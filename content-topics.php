@@ -104,7 +104,7 @@ if (!defined('ABSPATH')) {
 		<!-- Tags -->
 		<ul class="nm-tags-topics-single">
 			<?php
-			$topic_tags = get_tags();
+			$topic_tags = get_the_tags();
 			if (has_tag()) :
 				foreach ($topic_tags as $topic_tag) : ?>
 					<li><a href="<?php echo get_tag_link($topic_tag->term_id); ?>"><?php echo esc_html($topic_tag->name); ?></a></li>

@@ -26,7 +26,7 @@ Updated: 2021-11-24 03:09:00
 }
 
 .nm-topic-heaer-title{
-    background: #fff;
+    background: #F3F4F6;
     padding: 26px;
     /* font-family: "Nunito", sans-serif; */
 }
@@ -101,10 +101,21 @@ Updated: 2021-11-24 03:09:00
 
 /* Single */
 .nm-topic-single-container{
-    width: 70%;
+    width: 75%;
     display: inline-block;
     position: relative;
-    margin: 20px 0px 20px 25px;
+    /*margin: 20px 0px 20px 25px;*/
+    margin-top: 20px;
+}
+
+.nm-topic-single-container .inside-article{
+    padding: 0px 25px 40px;
+}
+
+.nm-topic-single-container .inside-article .featured-image img{
+    position: relative;
+    display: block;
+    margin: 0px auto;
 }
 
 .nm-tags-topics-single{
@@ -129,6 +140,7 @@ Updated: 2021-11-24 03:09:00
 /* Sidebar */
 .widget-area .widget{
     padding: 20px;
+    background: #F3F4F6 !important;
 }
 .widget-title{
     margin-bottom: 20px;

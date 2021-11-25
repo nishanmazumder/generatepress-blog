@@ -1,0 +1,157 @@
+/*
+Theme Name: GeneratePress Child
+Theme URI: https://generatepress.com
+Template: generatepress
+Author: Tom Usborne
+Author URI: https://tomusborne.com
+Description: GeneratePress is a lightweight WordPress theme built with a focus on speed and usability. Performance is important to us, which is why a fresh GeneratePress install adds less than 10kb (gzipped) to your page size. We take full advantage of the block editor (Gutenberg), which gives you more control over creating your content. If you use page builders, GeneratePress is the right theme for you. It is completely compatible with all major page builders, including Beaver Builder and Elementor. Thanks to our emphasis on WordPress coding standards, we can boast full compatibility with all well-coded plugins, including WooCommerce. GeneratePress is fully responsive, uses valid HTML/CSS, and is translated into over 25 languages by our amazing community of users. A few of our many features include 60+ color controls, powerful dynamic typography, 5 navigation locations, 5 sidebar layouts, dropdown menus (click or hover), and 9 widget areas. Learn more and check out our powerful premium version at https://generatepress.com
+Tags: two-columns,three-columns,one-column,right-sidebar,left-sidebar,footer-widgets,blog,e-commerce,flexible-header,full-width-template,buddypress,custom-header,custom-background,custom-menu,custom-colors,sticky-post,threaded-comments,translation-ready,rtl-language-support,featured-images,theme-options
+Version: 3.1.0.1637723340
+Updated: 2021-11-24 03:09:00
+
+*/
+
+/* Global*/
+.nm-topics-section, .nm-topic-header{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.site-content .content-area {
+    width: 75% !important;
+}
+
+.nm-topic-header{
+    width: 98%;
+}
+
+.nm-topic-heaer-title{
+    background: #fff;
+    padding: 26px;
+    /* font-family: "Nunito", sans-serif; */
+}
+
+.nm-topic-heaer-title p{
+    margin-bottom: 0px;
+}
+
+.nm-no-pad {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.nm-topics-section  .paging-navigation{
+    text-align: center;
+    margin-left: 10px;
+    width: 98%;
+}
+
+.nm-topics-section  .paging-navigation .nav-links>*{
+    padding: 5px 10px;
+    border: 1px solid #333;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.nm-topics-section  .paging-navigation .nav-links:first-child{
+    padding-left: 5px !important;
+}
+.nm-topics-section  .paging-navigation .nav-links>*:hover{
+    color: #F15A29;
+}
+.nm-display-flex{
+    display: flex;
+}
+/* Topics Post*/
+.nm-post-area {
+    background: #fff;
+    padding: 40px;
+    /* margin: 0px 20px 20px -10px; */
+    margin-bottom: 20px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.nm-topics-title{
+    margin-top: 25px;
+    margin-bottom: -10px;
+}
+
+.nm-post-area a{
+    /* font-family: "Nunito", sans-serif; */
+    text-decoration: none;
+    color: #212d45;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.nm-post-area a:hover{
+    text-decoration: none;
+    color: #F15A29;
+}
+
+.nm-topics-img {
+    width: 100%;
+    height: 210px;
+    border-radius: 10px;
+    background-position: top center;
+}
+
+/* Single */
+.nm-topic-single-container{
+    width: 65%;
+    display: inline-block;
+    position: relative;
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+/* Sidebar */
+.widget-area .widget{
+    padding: 20px;
+}
+.widget-title{
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+.is-right-sidebar {
+    width: 25% !important;
+}
+.nm-sidbar-table .is-left-sidebar {
+    width: 30%;
+    display: inline-block;
+    float: left;
+}
+.nm-topic-post-link{
+    display: block;
+    color: #212d45;
+    text-decoration: none;
+    font-size: 17px;
+    /* font-weight: 500; */
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+
+.nm-topic-post-link:hover{
+    color: #F15A29;
+}
+
+
+@media screen and (max-width: 780px) {
+    .site-content .content-area {
+        width: 100% !important;
+    }
+    .is-right-sidebar{
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .nm-topic-single-container{
+        width: 100%;
+        margin-left: 0px;
+    }
+    .nm-sidbar-table .is-left-sidebar{
+        width: 100%;
+    }
+}

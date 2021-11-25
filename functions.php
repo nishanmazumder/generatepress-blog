@@ -104,3 +104,32 @@ function nm_topics_recent_post()
 
     return $data;
 }
+
+function test()
+{
+    $tag_id = get_queried_object();
+
+    $args = array(
+        'post_type'  => 'topics',
+        'tax_query'  => array(
+            array(
+                'taxonomy'  => 'post_tag',
+                'field'     => 'term_id',
+                'terms'     =>  $tag_id,
+            ),
+        ),
+    );
+
+    $topics = new WP_Query($args);
+
+    if ($topics->have_posts()) :
+
+        while ($topics->have_posts()) : $topics->the_post();
+
+            the_title();
+
+
+        endwhile;
+
+    endif;
+}

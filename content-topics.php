@@ -1,16 +1,17 @@
 <?php
+
 /**
  * The template for displaying single posts.
  *
  * @package GeneratePress
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php generate_do_microdata( 'article' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php generate_do_microdata('article'); ?>>
 	<div class="inside-article">
 		<?php
 		/**
@@ -20,23 +21,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 *
 		 * @hooked generate_featured_page_header_inside_single - 10
 		 */
-		do_action( 'generate_before_content' );
+		do_action('generate_before_content');
 
-		if ( generate_show_entry_header() ) :
-			?>
-			<header <?php generate_do_attr( 'entry-header' ); ?>>
+		if (generate_show_entry_header()) :
+		?>
+			<header <?php generate_do_attr('entry-header'); ?>>
 				<?php
 				/**
 				 * generate_before_entry_title hook.
 				 *
 				 * @since 0.1
 				 */
-				do_action( 'generate_before_entry_title' );
+				do_action('generate_before_entry_title');
 
-				if ( generate_show_title() ) {
+				if (generate_show_title()) {
 					$params = generate_get_the_title_parameters();
 
-					the_title( $params['before'], $params['after'] );
+					the_title($params['before'], $params['after']);
 				}
 
 				/**
@@ -46,10 +47,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				 *
 				 * @hooked generate_post_meta - 10
 				 */
-				do_action( 'generate_after_entry_title' );
+				do_action('generate_after_entry_title');
 				?>
 			</header>
-			<?php
+		<?php
 		endif;
 
 		/**
@@ -59,22 +60,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 *
 		 * @hooked generate_post_image - 10
 		 */
-		do_action( 'generate_after_entry_header' );
+		do_action('generate_after_entry_header');
 
 		$itemprop = '';
 
-		if ( 'microdata' === generate_get_schema_type() ) {
+		if ('microdata' === generate_get_schema_type()) {
 			$itemprop = ' itemprop="text"';
 		}
 		?>
 
-		<div class="entry-content"<?php echo $itemprop; // phpcs:ignore -- No escaping needed. ?>>
+		<div class="entry-content" <?php echo $itemprop; // phpcs:ignore -- No escaping needed. 
+									?>>
 			<?php
 			the_content();
 
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'generatepress' ),
+					'before' => '<div class="page-links">' . __('Pages:', 'generatepress'),
 					'after'  => '</div>',
 				)
 			);
@@ -89,14 +91,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 *
 		 * @hooked generate_footer_meta - 10
 		 */
-		do_action( 'generate_after_entry_content' );
+		do_action('generate_after_entry_content');
 
 		/**
 		 * generate_after_content hook.
 		 *
 		 * @since 0.1
 		 */
-		do_action( 'generate_after_content' );
+		do_action('generate_after_content');
 		?>
+
+		<!-- Tags -->
+		<ul class="nm-tags-topics-single">
+			<?php
+			$topic_tags = get_tags();
+			if (has_tag()) :
+				foreach ($topic_tags as $topic_tag) : ?>
+					<li><a href="<?php echo get_tag_link($topic_tag->term_id); ?>"><?php echo esc_html($topic_tag->name); ?></a></li>
+			<?php
+				endforeach;
+			endif;
+			?>
+		</ul>
+
 	</div>
 </article>

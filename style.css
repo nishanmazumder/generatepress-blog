@@ -149,6 +149,30 @@ Updated: 2021-11-24 03:09:00
     background: #F15A29;
 }
 
+/* Related post */
+/* .nm-topic-related{} */
+.nm-topic-related span{
+    font-size: 15px;
+}
+.nm-releted-post-img{
+    width: 100% !important;
+    height: 200px;
+    border-radius: 10px;
+    background-repeat: no-repeat !important;
+    background-position: top center !important;
+    background-size: cover !important;
+}
+
+.nm-topic-related-post-link{
+    display: block;
+    color: #212d45;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 15px;
+}
+
 /* Sidebar */
 .widget-area .widget{
     padding: 20px;
@@ -190,12 +214,40 @@ Updated: 2021-11-24 03:09:00
     margin-top: 0px !important;
 }
 
+/* footer */
+#menu-footer-menu li a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #212d45;
+}
+
+#menu-footer-menu li a:hover{
+    color: #D9645A;
+}
+
+
+
+.copyright-bar span, .copyright-bar a{
+    font-size: 14px;
+}
+
+
+
 @media screen and (max-width: 780px) {
+    .nm-post-area{
+        padding: 10px;
+    }
     .site-content .content-area {
         width: 100% !important;
     }
     .is-right-sidebar{
         width: 100% !important;
+    }
+    .nm-topic-related{
+        margin-top: 30px;
+    }
+    .footer-widgets-container{
+        padding: 10px 10px 40px;
     }
 }
 

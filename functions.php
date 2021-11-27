@@ -131,6 +131,15 @@ function nm_post_content_limit($limit)
     echo implode(' ', $limit_content);
 }
 
+//Post title Limit 
+function nm_post_title_limit($limit)
+{
+    $post_title = explode(' ', get_the_title());
+    $limit_content = array_slice($post_title, 0, $limit);
+
+    return implode(' ', $limit_content);
+}
+
 //Pagination
 function nm_post_pagination()
 {
@@ -195,8 +204,6 @@ add_action('enqueue_block_editor_assets', 'nm_block_editor_styles');
 add_shortcode('nm_related_post_topics', 'nm_topics_related_post');
 function nm_topics_related_post()
 {
-
-    //$get_teg_id = 'test';
     $args = [
         'post_type' => 'topics',
         'post_status' => 'publish',
@@ -216,15 +223,24 @@ function nm_topics_related_post()
 
     $topics = new WP_Query($args);
 
-    $data = '';
     if ($topics->have_posts()) :
+        $data = '<div class="container-fluid"> <div class="row">';
         while ($topics->have_posts()) : $topics->the_post();
-            $data .= get_the_modified_time('M d, Y');
-            $data .= '<a class="nm-topic-post-link" href="' . get_the_permalink() . '">' . get_the_title() . '</a>';
-        //$data .= get_the_post_thumbnail();
+            $data .= '<div class="col-md-4 col-sm-12 col-xs-12 nm-topic-related">';
+            $data .= '<span>' . esc_html(get_the_modified_time('M d, Y')) . '</span>';
+            $data .= '<a class="nm-topic-related-post-link" href="' . esc_url(get_the_permalink()) . '">' . nm_post_title_limit(5) . '</a>';
+            $data .= '<a href="' . esc_url(get_the_permalink()) . '"><div class="nm-releted-post-img" style="background:url(' . esc_url(get_the_post_thumbnail_url()) . ')" class="img-responsive"></div></a>';
+            $data .= '</div>';
         endwhile;
+        $data .= '</div></div>';
         wp_reset_postdata();
     endif;
 
     return $data;
+}
+
+// Footer menu
+add_action('after_setup_theme', 'nm_footer_menu');
+function nm_footer_menu(){
+    register_nav_menu('nm-footer-menu', __('Footer Menu', 'generatepress'));
 }

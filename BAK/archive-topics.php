@@ -38,21 +38,7 @@ get_header(); ?>
 
 		<?php
 		if (generate_has_default_loop()) {
-			$tag_id = get_queried_object();
-			$args = array(
-				'post_type'  => 'topics',
-				'tax_query'  => array(
-					array(
-						'taxonomy'  => 'post_tag',
-						'field'     => 'term_id',
-						'terms'     =>  $tag_id,
-					),
-				),
-			);
-
-			$topics = new WP_Query($args);
-
-			if ($topics->have_posts()) :
+			if (have_posts()) :
 
 				/**
 				 * generate_archive_title hook.
@@ -72,8 +58,8 @@ get_header(); ?>
 				<div class="container-fluid nm-topics-section">
 					<div class="row">
 						<?php
-						while ($topics->have_posts()) :
-							$topics->the_post();
+						while (have_posts()) :
+							the_post();
 						?>
 							<div class="col-xl-6 col-md-6 col-sm-12 col-xs-12 nm-display-flex">
 								<div class="nm-post-area">
@@ -104,8 +90,6 @@ get_header(); ?>
 			else :
 				generate_do_template_part('none');
 			endif;
-
-			wp_reset_postdata();
 		}
 
 		/**
@@ -126,11 +110,15 @@ get_header(); ?>
  */
 do_action('generate_after_primary_content_area'); ?>
 
-<?php
-if (is_active_sidebar('sidebar-topics')) {
-	get_sidebar('topics');
-} else {
-	echo "No data avaialable!";
-}
+<!-- <div class="nm-sidbar-right"> -->
+	<?php
+	if (is_active_sidebar('sidebar-topics')) {
+		get_sidebar('topics');
+	} else {
+		echo "No data avaialable!";
+	}
+	?>
+<!-- </div> -->
 
+<?php
 get_footer();

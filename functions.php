@@ -16,6 +16,78 @@ endif;
 add_filter('locale_stylesheet_uri', 'chld_thm_cfg_locale_css');
 
 // END ENQUEUE PARENT ACTION
+// Post Types TOPICS
+add_action('init', 'nm_topics_post_type');
+function nm_topics_post_type()
+{
+
+    /**
+     * Post Type: Topics.
+     */
+
+    $labels = [
+        "name" => __("Topics", "custom-post-type-ui"),
+        "singular_name" => __("Topic", "custom-post-type-ui"),
+        "menu_name" => __("Topics", "custom-post-type-ui"),
+        "all_items" => __("All Topics", "custom-post-type-ui"),
+        "add_new" => __("Add new", "custom-post-type-ui"),
+        "add_new_item" => __("Add new Topic", "custom-post-type-ui"),
+        "edit_item" => __("Edit Topic", "custom-post-type-ui"),
+        "new_item" => __("New Topic", "custom-post-type-ui"),
+        "view_item" => __("View Topic", "custom-post-type-ui"),
+        "view_items" => __("View Topics", "custom-post-type-ui"),
+        "search_items" => __("Search Topics", "custom-post-type-ui"),
+        "not_found" => __("No Topics found", "custom-post-type-ui"),
+        "not_found_in_trash" => __("No Topics found in trash", "custom-post-type-ui"),
+        "parent" => __("Parent Topic:", "custom-post-type-ui"),
+        "featured_image" => __("Featured image for this Topic", "custom-post-type-ui"),
+        "set_featured_image" => __("Set featured image for this Topic", "custom-post-type-ui"),
+        "remove_featured_image" => __("Remove featured image for this Topic", "custom-post-type-ui"),
+        "use_featured_image" => __("Use as featured image for this Topic", "custom-post-type-ui"),
+        "archives" => __("Topic archives", "custom-post-type-ui"),
+        "insert_into_item" => __("Insert into Topic", "custom-post-type-ui"),
+        "uploaded_to_this_item" => __("Upload to this Topic", "custom-post-type-ui"),
+        "filter_items_list" => __("Filter Topics list", "custom-post-type-ui"),
+        "items_list_navigation" => __("Topics list navigation", "custom-post-type-ui"),
+        "items_list" => __("Topics list", "custom-post-type-ui"),
+        "attributes" => __("Topics attributes", "custom-post-type-ui"),
+        "name_admin_bar" => __("Topic", "custom-post-type-ui"),
+        "item_published" => __("Topic published", "custom-post-type-ui"),
+        "item_published_privately" => __("Topic published privately.", "custom-post-type-ui"),
+        "item_reverted_to_draft" => __("Topic reverted to draft.", "custom-post-type-ui"),
+        "item_scheduled" => __("Topic scheduled", "custom-post-type-ui"),
+        "item_updated" => __("Topic updated.", "custom-post-type-ui"),
+        "parent_item_colon" => __("Parent Topic:", "custom-post-type-ui"),
+    ];
+
+    $args = [
+        "label" => __("Topics", "custom-post-type-ui"),
+        "labels" => $labels,
+        "description" => "",
+        "public" => true,
+        "publicly_queryable" => true,
+        "show_ui" => true,
+        "show_in_rest" => true,
+        "rest_base" => "",
+        "rest_controller_class" => "WP_REST_Posts_Controller",
+        "has_archive" => "topics",
+        "show_in_menu" => true,
+        "show_in_nav_menus" => true,
+        "delete_with_user" => false,
+        "exclude_from_search" => false,
+        "capability_type" => "post",
+        "map_meta_cap" => true,
+        "hierarchical" => false,
+        "rewrite" => ["slug" => "topics", "with_front" => true],
+        "query_var" => true,
+        "menu_icon" => "dashicons-welcome-widgets-menus",
+        "supports" => ["title", "editor", "thumbnail", "excerpt", "custom-fields", "comments", "author", "page-attributes"],
+        "taxonomies" => ["post_tag"],
+        "show_in_graphql" => false,
+    ];
+
+    register_post_type("topics", $args);
+}
 
 // Assets
 add_action('wp_enqueue_scripts', 'nm_register_scripts');
@@ -105,31 +177,54 @@ function nm_topics_recent_post()
     return $data;
 }
 
-function test()
+// Gutenberg Editor size
+function nm_block_editor_styles()
 {
-    $tag_id = get_queried_object();
+    $version = filemtime(get_stylesheet_directory() . '/assets/css/nm-editor.css');
 
-    $args = array(
-        'post_type'  => 'topics',
-        'tax_query'  => array(
-            array(
-                'taxonomy'  => 'post_tag',
-                'field'     => 'term_id',
-                'terms'     =>  $tag_id,
-            ),
-        ),
+    wp_enqueue_style(
+        '/assets/css/nm-editor.css',
+        get_stylesheet_directory_uri() . '/assets/css/nm-editor.css',
+        [],
+        $version
     );
+}
+add_action('enqueue_block_editor_assets', 'nm_block_editor_styles');
+
+// Shortcode Realated Topics
+add_shortcode('nm_related_post_topics', 'nm_topics_related_post');
+function nm_topics_related_post()
+{
+
+    //$get_teg_id = 'test';
+    $args = [
+        'post_type' => 'topics',
+        'post_status' => 'publish',
+        'posts_per_page' => 3,
+        'order'        => 'desc',
+        'orderby' => 'rand',
+    ];
+
+    //Get all Tag ids form single post
+    $get_tags_sinfle = wp_get_post_terms(get_queried_object_id(), 'post_tag', ['fields' => 'ids']);
+
+    if (is_tag()) {
+        $args['tag_id'] = get_queried_object_id();
+    } elseif (is_single()) {
+        $args['tag__in'] = $get_tags_sinfle;
+    }
 
     $topics = new WP_Query($args);
 
+    $data = '';
     if ($topics->have_posts()) :
-
         while ($topics->have_posts()) : $topics->the_post();
-
-            the_title();
-
-
+            $data .= get_the_modified_time('M d, Y');
+            $data .= '<a class="nm-topic-post-link" href="' . get_the_permalink() . '">' . get_the_title() . '</a>';
+        //$data .= get_the_post_thumbnail();
         endwhile;
-
+        wp_reset_postdata();
     endif;
+
+    return $data;
 }

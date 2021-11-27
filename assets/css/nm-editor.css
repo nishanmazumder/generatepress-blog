@@ -1,0 +1,21 @@
+/* 
+ * Main column width
+ * This changes it from the default 580px to 720px
+ */
+/*  .wp-block {
+    max-width: 450px !important;
+}
+ */
+/* 
+ * Width of "wide" blocks
+ * This changes it from the default 1080px to 1280px
+ */
+/* .wp-block[data-align="wide"] {
+    max-width: 1280px !important;
+} */
+
+.edit-post-visual-editor__content-area{
+	padding: 0px;
+    width: 60%;
+    margin: 0px auto;
+}

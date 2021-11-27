@@ -18,7 +18,7 @@ Updated: 2021-11-24 03:09:00
 }
 
 .site-content .content-area {
-    width: 100% !important;
+    width: 75% !important;
 }
 
 .nm-topic-header{
@@ -26,7 +26,7 @@ Updated: 2021-11-24 03:09:00
 }
 
 .nm-topic-heaer-title{
-    background: #F7F6F6;
+    background: #F3F4F6;
     padding: 26px;
     /* font-family: "Nunito", sans-serif; */
 }
@@ -100,35 +100,23 @@ Updated: 2021-11-24 03:09:00
 }
 
 /* Single */
-.nm-topic-single-main-container{
-	max-width: 1500px !important;
-}
 .nm-topic-single-container{
-    width: 100%;
-/*     display: inline-block; */
-/*     position: relative; */
+    width: 75%;
+    display: inline-block;
+    position: relative;
     /*margin: 20px 0px 20px 25px;*/
     margin-top: 20px;
 }
 
 .nm-topic-single-container .inside-article{
-    padding: 0px 0px 40px;
-}
-
-.nm-topic-single-container .inside-article header{
-	margin-bottom: 25px;
+    padding: 0px 25px 40px;
 }
 
 .nm-topic-single-container .inside-article .featured-image img{
     position: relative;
     display: block;
     margin: 0px auto;
-	width: 100%;
 }
-
-/* .nm-topic-single-container .inside-article .featured-image{
-	display: none !important;
-} */
 
 .nm-tags-topics-single{
     list-style: none;
@@ -152,25 +140,19 @@ Updated: 2021-11-24 03:09:00
 /* Sidebar */
 .widget-area .widget{
     padding: 20px;
-    background: #F7F6F6 !important;
+    background: #F3F4F6 !important;
 }
 .widget-title{
     margin-bottom: 20px;
     font-weight: 500;
 }
 .is-right-sidebar {
-    width: 32%;
+    width: 25% !important;
 }
-.nm-topic-single-main-container .is-right-sidebar {
-    width: 100% !important;
-}
-
 .nm-sidbar-table .is-left-sidebar {
-/*     width: 25%;
+    width: 25%;
     display: inline-block;
-    float: left; */
-	
-	width: 100%;
+    float: left;
 }
 .nm-topic-post-link{
     display: block;
@@ -207,7 +189,7 @@ Updated: 2021-11-24 03:09:00
     .nm-sidbar-table .is-left-sidebar{
         width: 100%;
     }
-	.nm-topic-single-container .inside-article{
+    .nm-topic-single-container .inside-article{
 		padding: 0px;
 	}
 }

@@ -126,11 +126,15 @@ get_header(); ?>
  */
 do_action('generate_after_primary_content_area'); ?>
 
+<!-- <div class="nm-sidbar-right"> -->
 <?php
 if (is_active_sidebar('sidebar-topics')) {
 	get_sidebar('topics');
 } else {
 	echo "No data avaialable!";
 }
+?>
+<!-- </div> -->
 
+<?php
 get_footer();

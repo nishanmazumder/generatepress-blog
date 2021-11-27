@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 		 *
 		 * @hooked generate_featured_page_header_inside_single - 10
 		 */
-		//do_action('generate_before_content');
+		
 
 		if (generate_show_entry_header()) :
 		?>
@@ -54,6 +54,7 @@ if (!defined('ABSPATH')) {
 		endif;
 
 		do_action('generate_before_content');
+
 		/**
 		 * generate_after_entry_header hook.
 		 *

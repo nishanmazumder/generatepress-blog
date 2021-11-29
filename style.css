@@ -26,7 +26,33 @@ Updated: 2021-11-24 03:09:00
     padding-right: 0px;
 }
 
+.nm-btn{
+    margin: 0px auto !important;
+}
+
+.nm-btn a{
+    border: 3px solid #D9645A !important;
+    color: #D9645A !important;
+    background: transparent !important;
+    padding: 5px 25px !important;
+    font-weight: 500 !important;
+}
+
+.nm-btn a:hover{
+    color: #fff !important;
+    background: #D9645A !important;
+}
+
 /* Home */
+.nm-title{
+    font-size: 30px;
+}
+
+.nm-title svg{
+    height: 25px !important;
+    width: 25px !important;
+}
+
 .nm-tab-home{
     width: 85%;
     margin: 0px auto;
@@ -52,6 +78,10 @@ Updated: 2021-11-24 03:09:00
 
 .nm-tab-home .uagb-column__inner-wrap{
     padding-top: 0px;
+}
+
+.nm-btn-home{
+    margin-top: 30px !important;
 }
 
 /* Topics */
@@ -216,6 +246,7 @@ Updated: 2021-11-24 03:09:00
 /* Latest post */
 .nm-topics-latest{
     text-align: center;
+    width: 100%;
 }
 
 .nm-topics-latest .nm-topic-related-post-link{

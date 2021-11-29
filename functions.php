@@ -140,6 +140,17 @@ function nm_post_title_limit($limit)
     return implode(' ', $limit_content);
 }
 
+// Post title limit by string
+function nm_post_title_limit_str($content_count = 0)
+{
+    // Get title
+    $excerpt = wp_strip_all_tags(get_the_title());
+    $excerpt = substr($excerpt, 0, $content_count);
+    $excerpt = substr($excerpt, 0, strrpos($excerpt, ' '));
+
+    return $excerpt;
+}
+
 //Pagination
 function nm_post_pagination()
 {
@@ -213,23 +224,53 @@ function nm_topics_related_post()
     ];
 
     //Get all Tag ids form single post
-    $get_tags_sinfle = wp_get_post_terms(get_queried_object_id(), 'post_tag', ['fields' => 'ids']);
+    $get_tags_single = wp_get_post_terms(get_queried_object_id(), 'post_tag', ['fields' => 'ids']);
 
     if (is_tag()) {
         $args['tag_id'] = get_queried_object_id();
     } elseif (is_single()) {
-        $args['tag__in'] = $get_tags_sinfle;
+        $args['tag__in'] = $get_tags_single;
+        $args['post__not_in'] = [get_queried_object_id()];
     }
 
     $topics = new WP_Query($args);
 
     if ($topics->have_posts()) :
-        $data = '<div class="container-fluid"> <div class="row">';
+        $data = '<div class="container-fluid nm-no-pad nm-topic-related-container"> <div class="row">';
         while ($topics->have_posts()) : $topics->the_post();
             $data .= '<div class="col-md-4 col-sm-12 col-xs-12 nm-topic-related">';
             $data .= '<span>' . esc_html(get_the_modified_time('M d, Y')) . '</span>';
-            $data .= '<a class="nm-topic-related-post-link" href="' . esc_url(get_the_permalink()) . '">' . nm_post_title_limit(5) . '</a>';
+            $data .= '<a class="nm-topic-related-post-link" href="' . esc_url(get_the_permalink()) . '">' . nm_post_title_limit_str(30) . '</a>';
             $data .= '<a href="' . esc_url(get_the_permalink()) . '"><div class="nm-releted-post-img" style="background:url(' . esc_url(get_the_post_thumbnail_url()) . ')" class="img-responsive"></div></a>';
+            $data .= '</div>';
+        endwhile;
+        $data .= '</div></div>';
+        wp_reset_postdata();
+    endif;
+
+    return $data;
+}
+
+// Shortcode Realated Topics
+add_shortcode('nm_latest_post_topics', 'nm_topics_latest_post');
+function nm_topics_latest_post()
+{
+    $args = [
+        'post_type' => 'topics',
+        'post_status' => 'publish',
+        'posts_per_page' => 3,
+        'order'        => 'desc'
+    ];
+
+    $topics = new WP_Query($args);
+
+    if ($topics->have_posts()) :
+        $data = '<div class="container-fluid nm-no-pad nm-topic-related-container nm-topics-latest"> <div class="row">';
+        while ($topics->have_posts()) : $topics->the_post();
+            $data .= '<div class="col-md-4 col-sm-12 col-xs-12 nm-topic-related">';
+            $data .= '<a href="' . esc_url(get_the_permalink()) . '"><div class="nm-releted-post-img" style="background:url(' . esc_url(get_the_post_thumbnail_url()) . ')" class="img-responsive"></div></a>';
+            $data .= '<a class="nm-topic-related-post-link" href="' . esc_url(get_the_permalink()) . '">' . nm_post_title_limit_str(30) . '</a>';
+            $data .= '<span>' . esc_html(get_the_modified_time('F d, Y')) . '</span>';
             $data .= '</div>';
         endwhile;
         $data .= '</div></div>';

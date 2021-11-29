@@ -56,7 +56,7 @@ get_header(); ?>
 				 */
 				do_action('generate_before_loop', 'archive'); ?>
 				<div class="container-fluid nm-topics-section">
-					<div class="row">
+					<div class="row inside-article">
 						<?php
 						while (have_posts()) :
 							the_post();

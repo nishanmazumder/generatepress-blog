@@ -21,6 +21,40 @@ Updated: 2021-11-24 03:09:00
     width: 100% !important;
 }
 
+.nm-no-pad {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/* Home */
+.nm-tab-home{
+    width: 85%;
+    margin: 0px auto;
+    margin-top: 50px;
+}
+
+.nm-tab-home .uagb-tabs__body-wrap{
+    border: none !important;
+}
+
+.nm-tab-home .uagb-tab{
+    border: none !important;
+}
+.nm-tab-home .uagb-tab a{
+    text-decoration: none;
+    border-right: 1px solid #aaa !important;
+    padding: 0px 15px;
+}
+
+.nm-tab-home .uagb-tabs__panel li:last-child a{
+    border-right: none !important;
+}
+
+.nm-tab-home .uagb-column__inner-wrap{
+    padding-top: 0px;
+}
+
+/* Topics */
 .nm-topic-header{
     width: 98%;
 }
@@ -35,9 +69,8 @@ Updated: 2021-11-24 03:09:00
     margin-bottom: 0px;
 }
 
-.nm-no-pad {
-    padding-left: 0px;
-    padding-right: 0px;
+.nm-topics-section .inside-article{
+    padding: 0px !important;
 }
 
 .nm-topics-section  .paging-navigation{
@@ -80,14 +113,14 @@ Updated: 2021-11-24 03:09:00
 .nm-post-area a{
     /* font-family: "Nunito", sans-serif; */
     text-decoration: none;
-    color: #212d45;
+    /* color: #212d45; */
     font-size: 22px;
     font-weight: 600;
 }
 
 .nm-post-area a:hover{
     text-decoration: none;
-    color: #F15A29;
+    /* color: #F15A29; */
 }
 
 .nm-topics-img {
@@ -150,13 +183,20 @@ Updated: 2021-11-24 03:09:00
 }
 
 /* Related post */
+.nm-topic-related-container{
+    width: 75%;
+}
+.nm-related-title{
+    /* margin-bottom: -20px !important; */
+    margin-left: 175px;
+}
 /* .nm-topic-related{} */
 .nm-topic-related span{
     font-size: 15px;
 }
 .nm-releted-post-img{
     width: 100% !important;
-    height: 200px;
+    height: 165px;
     border-radius: 10px;
     background-repeat: no-repeat !important;
     background-position: top center !important;
@@ -165,7 +205,7 @@ Updated: 2021-11-24 03:09:00
 
 .nm-topic-related-post-link{
     display: block;
-    color: #212d45;
+    /* color: #212d45; */
     text-decoration: none;
     font-size: 22px;
     font-weight: 500;
@@ -173,10 +213,31 @@ Updated: 2021-11-24 03:09:00
     margin-bottom: 15px;
 }
 
+/* Latest post */
+.nm-topics-latest{
+    text-align: center;
+}
+
+.nm-topics-latest .nm-topic-related-post-link{
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+.nm-topics-latest .nm-releted-post-img{
+    border-radius: 0px;
+}
+
+.nm-topics-latest span{
+    font-size: 14px;
+    color: #7a7a7a;
+    font-weight: 600;
+}
+
+
 /* Sidebar */
 .widget-area .widget{
     padding: 20px;
-    background: #F7F6F6 !important;
+    /* background: #F7F6F6 !important; */
 }
 .widget-title{
     margin-bottom: 20px;
@@ -198,7 +259,7 @@ Updated: 2021-11-24 03:09:00
 }
 .nm-topic-post-link{
     display: block;
-    color: #212d45;
+    /* color: #212d45; */
     text-decoration: none;
     font-size: 17px;
     /* font-weight: 500; */
@@ -206,9 +267,9 @@ Updated: 2021-11-24 03:09:00
     margin-bottom: 10px;
 }
 
-.nm-topic-post-link:hover{
+/* .nm-topic-post-link:hover{
     color: #F15A29;
-}
+} */
 
 .lwptoc:first-child{
     margin-top: 0px !important;
@@ -225,6 +286,10 @@ Updated: 2021-11-24 03:09:00
     color: #D9645A;
 }
 
+.post-type-archive-topics .footer-widgets, .home .footer-widgets{
+    display: none;
+}
+
 
 
 .copyright-bar span, .copyright-bar a{
@@ -233,21 +298,42 @@ Updated: 2021-11-24 03:09:00
 
 
 
-@media screen and (max-width: 780px) {
-    .nm-post-area{
-        padding: 10px;
+@media screen and (max-width: 1030px) {
+    .nm-tab-home{
+        width: 100%;
     }
+    .nm-topic-related-container{
+        width: 100%;
+    }
+    .nm-related-title{
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 780px) {
     .site-content .content-area {
         width: 100% !important;
     }
+    /* Home */
+    .nm-tab-home .uagb-tabs__panel{
+        flex-direction: unset !important;
+    }
+
+    /* Topics */
+    .nm-post-area{
+        padding: 10px;
+    }
+   
+    /* Sidebar */
     .is-right-sidebar{
         width: 100% !important;
     }
     .nm-topic-related{
         margin-top: 30px;
     }
+    /* Footer */
     .footer-widgets-container{
-        padding: 10px 10px 40px;
+        padding: 10px 20px 40px;
     }
 }
 
@@ -262,4 +348,7 @@ Updated: 2021-11-24 03:09:00
 	.nm-topic-single-container .inside-article{
 		padding: 0px;
 	}
+    .nm-related-title{
+        margin-bottom: -40px !important;
+    }
 }

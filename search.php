@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The template for displaying Archive pages.
+ * The template for displaying Search Results pages.
  *
  * @package GeneratePress
  */

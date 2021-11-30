@@ -178,7 +178,7 @@ function nm_topics_recent_post()
 {
     $args = [
         'post_status' => 'publish',
-        'posts_per_page' => 8,
+        'posts_per_page' => 15,
         'post_type' => 'topics',
         'orderby'        => 'date',
         'short_order' => 'asc'

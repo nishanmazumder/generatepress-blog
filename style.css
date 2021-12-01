@@ -49,11 +49,15 @@ Updated: 2021-11-24 03:09:00
     background: #D9645A !important;
 }
 
-.nm-p{
+.nm-p {
     margin-bottom: 0px;
 }
 
 /* Header */
+.main-navigation .main-nav>ul{
+	margin-right: 140px;
+}
+
 #primary-menu .menu-item a {
     padding-left: 10px;
     padding-right: 10px;
@@ -86,18 +90,32 @@ Updated: 2021-11-24 03:09:00
     content: '';
 }
 
+.main-navigation ul ul {
+    width: 240px;
+}
+
 /* Search */
-.is-popup-search-form form{
+.is-popup-search-form form {
     width: 40%;
 }
+
 .is-search-form input {
     padding-left: 30px !important;
+	height: 45px !important;
+    border-radius: 5px !important;
 }
 
 .nm-search-icon {
     position: absolute;
-    top: 7px;
+    top: 10px;
     left: 5px;
+    fill: #a9a1a1;
+}
+
+.is-form-style input.is-search-submit, .is-search-icon{
+	height: 45px !important;
+    border-radius: 5px !important;
+    font-size: 18px !important;
 }
 
 /* Home */
@@ -143,6 +161,41 @@ Updated: 2021-11-24 03:09:00
 
 .nm-btn-home {
     margin-top: 30px !important;
+}
+
+/* Mailchimp */
+.nm-mail-chimp {
+    text-align: center;
+}
+
+.nm-mail-chimp .email {
+    padding: 4px 15px 6px !important;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #817878;
+    height: 44px !important;
+    width: 80%;
+}
+
+.nm-mail-chimp .button {
+    padding: 5px 10px;
+    background: #D9645A;
+    color: #fff;
+    border: 1px solid #D9645A;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .7s;
+    margin: 0px auto;
+    margin-top: 10px;
+    position: relative;
+    margin-left: -106px;
+}
+
+.nm-mail-chimp .button:hover {
+    background: transparent;
+    color: #D9645A;
 }
 
 /* Topics */
@@ -275,7 +328,11 @@ Updated: 2021-11-24 03:09:00
     padding: 5px 10px;
     border-radius: 5px;
     color: #fff;
-    background: #F15A29;
+    background: #D9645A;
+}
+
+.nm-tags-topics-single li a{
+	color: #fff !important;
 }
 
 /* Related post */
@@ -478,7 +535,8 @@ Updated: 2021-11-24 03:09:00
     .nm-seperator-header {
         height: 30px !important;
     }
-    .is-popup-search-form form{
+
+    .is-popup-search-form form {
         width: 75%;
     }
 

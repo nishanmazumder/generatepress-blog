@@ -1,2 +1,9 @@
 all file on bac
 Ivory Search : file changed - D:\laragon\www\bobbin\linuxposy\wp-content\plugins\add-search-to-menu\includes\class-is-search-form.php
+
+
+Available Shortcode:
+Recent post: [nm_recent_post_topics]
+Article selecte by category : [nm_best_article best="best-article"] || ATTR : best="CATEGORY-SLUGH"
+Widget Title (formated with icon) : [nm_widget_title text="Best Articles" icon="#D9645A"] || ATTR : text="TITLE" icon="ICON COLOR"
+Twitter Social button: [nm_twitter text="FOLLOW US ON" link="#" color="#D9645A" hover="#ffffff"] || ATTR : text="TITLE" link="ACCOUNT LINK" color="TEXT & BORDER COLOR" hover="TEXT COLOR ON HOVER"

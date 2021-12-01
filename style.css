@@ -12,7 +12,12 @@ Updated: 2021-11-24 03:09:00
 */
 
 /* Global*/
-.container {
+/* .container {
+    padding-left: 0px;
+    padding-right: 0px;
+} */
+
+.grid-container {
     padding-left: 0px;
     padding-right: 0px;
 }
@@ -54,8 +59,8 @@ Updated: 2021-11-24 03:09:00
 }
 
 /* Header */
-.main-navigation .main-nav>ul{
-	margin-right: 140px;
+.main-navigation .main-nav>ul {
+    margin-right: 140px;
 }
 
 #primary-menu .menu-item a {
@@ -101,7 +106,7 @@ Updated: 2021-11-24 03:09:00
 
 .is-search-form input {
     padding-left: 30px !important;
-	height: 45px !important;
+    height: 45px !important;
     border-radius: 5px !important;
 }
 
@@ -112,8 +117,9 @@ Updated: 2021-11-24 03:09:00
     fill: #a9a1a1;
 }
 
-.is-form-style input.is-search-submit, .is-search-icon{
-	height: 45px !important;
+.is-form-style input.is-search-submit,
+.is-search-icon {
+    height: 45px !important;
     border-radius: 5px !important;
     font-size: 18px !important;
 }
@@ -331,8 +337,8 @@ Updated: 2021-11-24 03:09:00
     background: #D9645A;
 }
 
-.nm-tags-topics-single li a{
-	color: #fff !important;
+.nm-tags-topics-single li a {
+    color: #fff !important;
 }
 
 /* Related post */
@@ -444,6 +450,10 @@ Updated: 2021-11-24 03:09:00
     font-size: 20px;
     position: relative;
     top: 5px;
+}
+
+.nm-mail-chimp-widget .email{
+    width: 95% !important;
 }
 
 .is-right-sidebar {
@@ -590,14 +600,43 @@ Updated: 2021-11-24 03:09:00
         font-size: 18px !important;
     }
 
-    .nm-tab-home {
+    /* .nm-tab-home {
         margin-top: -5px !important;
+    } */
+
+    .uagb-tabs__body{
+        margin-top: 10px !important;
+    }
+
+    /* .nm-tab-home .uagb-columns__inner-wrap{
+        display: block !important;
+    }
+    
+    .nm-tab-home .uagb-columns__inner-wrap .uagb-column__wrap{
+        width: 100% !important;
+    }
+    */
+
+    .nm-tab-home .uagb-columns__wrap{
+        padding: 0px !important;
+    } 
+    
+    .nm-tab-home figure{
+        margin: 0px !important;
+        margin-top: 10px !important;
+    }
+
+    .uagb-tabs__wrap .uagb-tabs__body-container{
+        padding: 5px !important;
+    }
+
+    .uagb-block-7285872e .uagb-column__inner-wrap{
+        padding: 5px !important;
     }
 
     .nm-tab-home .uagb-tabs__panel {
         max-width: inherit !important;
         display: block !important;
-        margin-left: 30px !important;
     }
 
     .uagb-tabs__wrap.uagb-tabs__vstyle6-mobile {
@@ -626,6 +665,14 @@ Updated: 2021-11-24 03:09:00
     .nm-topic-single-container {
         width: 100%;
         margin-left: 0px;
+    }
+
+    .nm-mail-chimp .email{
+        font-size: 16px;
+    }
+
+    .nm-sidebar-left-right{
+        display: none;
     }
 
     .inside-right-sidebar {

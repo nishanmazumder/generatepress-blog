@@ -94,6 +94,7 @@ function nm_register_scripts()
 {
     wp_enqueue_style('bootstrap-css', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css');
     wp_enqueue_script('bootstrap-js', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js', array('jquery'), '', true);
+    wp_enqueue_script('custom-js', get_stylesheet_directory_uri().'/assets/custom.js', array('jquery'), '', true);
 }
 
 // Topics sidebar.
@@ -273,7 +274,8 @@ function nm_topics_related_post()
             $data .= '<div class="col-md-4 col-sm-12 col-xs-12 nm-topic-related">';
             $data .= '<span>' . esc_html(get_the_modified_time('M d, Y')) . '</span>';
             $data .= '<a class="nm-topic-related-post-link" href="' . esc_url(get_the_permalink()) . '">' . nm_post_title_limit_str(30) . '</a>';
-            $data .= '<a href="' . esc_url(get_the_permalink()) . '"><div class="nm-releted-post-img" style="background:url(' . esc_url(get_the_post_thumbnail_url()) . ')" class="img-responsive"></div></a>';
+            // $data .= '<a href="' . esc_url(get_the_permalink()) . '"><div class="nm-releted-post-img" style="background:url(' . esc_url(get_the_post_thumbnail_url()) . ')" class="img-responsive"></div></a>';
+            $data .= '<a href="' . esc_url(get_the_permalink()) . '" class="nm-related-img-div"><div style="background:url(' . esc_url(get_the_post_thumbnail_url()) . ')" class="img-responsive"></div></a>';
             $data .= '</div>';
         endwhile;
         $data .= '</div></div>';
@@ -283,7 +285,7 @@ function nm_topics_related_post()
     return $data;
 }
 
-// Shortcode Realated Topics
+// Shortcode Latest Topics
 add_shortcode('nm_latest_post_topics', 'nm_topics_latest_post');
 function nm_topics_latest_post()
 {
@@ -300,7 +302,8 @@ function nm_topics_latest_post()
         $data = '<div class="container-fluid nm-no-pad nm-topic-related-container nm-topics-latest"> <div class="row">';
         while ($topics->have_posts()) : $topics->the_post();
             $data .= '<div class="col-md-4 col-sm-12 col-xs-12 nm-topic-related">';
-            $data .= '<a href="' . esc_url(get_the_permalink()) . '"><div class="nm-releted-post-img" style="background:url(' . esc_url(get_the_post_thumbnail_url()) . ')" class="img-responsive"></div></a>';
+            // $data .= '<a href="' . esc_url(get_the_permalink()) . '"><div class="nm-releted-post-img" style="background:url(' . esc_url(get_the_post_thumbnail_url()) . ')" class="img-responsive"></div></a>';
+            $data .= '<a href="' . esc_url(get_the_permalink()) . '" class="nm-related-img-div"><div style="background:url(' . esc_url(get_the_post_thumbnail_url()) . ')" class="img-responsive"></div></a>';
             $data .= '<a class="nm-topic-related-post-link" href="' . esc_url(get_the_permalink()) . '">' . nm_post_title_limit_str(30) . '</a>';
             $data .= '<span>' . esc_html(get_the_modified_time('F d, Y')) . '</span>';
             $data .= '</div>';

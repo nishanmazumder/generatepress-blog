@@ -17,10 +17,10 @@ Updated: 2021-11-24 03:09:00
     padding-right: 0px;
 } */
 
-.grid-container {
+/* .grid-container {
     padding-left: 0px;
     padding-right: 0px;
-}
+} */
 
 .nm-topics-section,
 .nm-topic-header {
@@ -125,6 +125,11 @@ Updated: 2021-11-24 03:09:00
 }
 
 /* Home */
+.nm-header .uagb-section__overlay,
+.nm-newslatter .uagb-section__overlay{
+    width: 102% !important;
+    margin-left: -15px !important;
+}
 .nm-title {
     font-size: 30px;
 }
@@ -322,6 +327,7 @@ Updated: 2021-11-24 03:09:00
     list-style: none;
     text-align: center;
     margin: 20px 0px 0px;
+    display: none;
 }
 
 .nm-tags-topics-single li {
@@ -356,10 +362,11 @@ Updated: 2021-11-24 03:09:00
     font-size: 15px;
 }
 
+.nm-related-img-div div,
 .nm-releted-post-img {
     width: 100% !important;
-    height: 165px;
-    border-radius: 10px;
+    height: 165px !important;
+    border-radius: 10px !important;
     background-repeat: no-repeat !important;
     background-position: top center !important;
     background-size: cover !important;
@@ -476,6 +483,25 @@ Updated: 2021-11-24 03:09:00
     width: 100%;
 }
 
+.nm-sidbar-table{
+    position: fixed;
+    background: #fff;
+    width: 360px;
+}
+
+/* .nm-sidbar-table .inside-left-sidebar aside:nth-child(1),
+.nm-sidbar-table .inside-left-sidebar aside:nth-child(2),
+.nm-sidbar-table .inside-left-sidebar aside:nth-child(3){
+    position: fixed;
+}
+.nm-sidbar-table .inside-left-sidebar aside:nth-child(2){
+    top: 360px;
+}
+
+.nm-sidbar-table .inside-left-sidebar aside:nth-child(3){
+    top: 430px;
+} */
+
 .nm-topic-post-link {
     display: block;
     text-decoration: none;
@@ -496,6 +522,24 @@ Updated: 2021-11-24 03:09:00
 .lwptoc:first-child {
     margin-top: 0px !important;
 }
+
+/* Contact */
+.nm-social-icon a{
+	padding: 0px !important;
+}
+
+.nm-form-btn{
+	display: block !important;
+    background: #D9645A !important;
+    color: #fff !important;
+    padding: 5px 10px !important;
+    width: 100% !important;
+}
+
+/* Social */
+/* .theChampSharingRound i{
+    background: #212d45 !important;
+} */
 
 /* footer */
 #menu-footer-menu li a {
@@ -522,6 +566,11 @@ Updated: 2021-11-24 03:09:00
 
 
 
+/* @media screen and (max-width: 1380px) {
+    .nm-sidbar-table{
+        width: 325px;
+    }
+} */
 @media screen and (max-width: 1030px) {
     .nm-tab-home {
         width: 100%;
@@ -694,4 +743,9 @@ Updated: 2021-11-24 03:09:00
     .nm-topics-latest {
         margin-top: -30px;
     }
+
+    /* 	contact */
+	.nm-contact-space{
+		height: 30px !important;
+	}
 }

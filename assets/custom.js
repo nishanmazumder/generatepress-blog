@@ -2,16 +2,15 @@ jQuery(document).ready(function ($) {
     jQuery(window).scroll(function () {
 
         var footerSelector = '.site-footer';
-        var socialBarSelector = '.nm-sidbar-table';
+        var sideBar = '.nm-sidbar-table';
 
-        var bottomViewPort = $(window).scrollTop() + $(window).height();
-        var footerTop = $(footerSelector).offset().top;
+        var scrollView = $(window).scrollTop() + $(window).height();
+        var footerOffset = $(footerSelector).offset().top;
 
-        if (bottomViewPort >= footerTop) {
-            $(socialBarSelector).fadeOut();
-            //$('.nm-sidbar-table').css('position', 'inherit')
+        if (scrollView >= footerOffset) {
+            $(sideBar).fadeOut();
         } else {
-            $(socialBarSelector).fadeIn();
+            $(sideBar).fadeIn();
         }
     });
 });

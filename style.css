@@ -17,10 +17,10 @@ Updated: 2021-11-24 03:09:00
     padding-right: 0px;
 } */
 
-/* .grid-container {
-    padding-left: 0px;
-    padding-right: 0px;
-} */
+.home .grid-container {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
 
 .nm-topics-section,
 .nm-topic-header {
@@ -42,7 +42,7 @@ Updated: 2021-11-24 03:09:00
 }
 
 .nm-btn a {
-    border: 3px solid #D9645A !important;
+    border: 2px solid #D9645A !important;
     color: #D9645A !important;
     background: transparent !important;
     padding: 5px 25px !important;
@@ -93,14 +93,14 @@ Updated: 2021-11-24 03:09:00
 /* #primary-menu a:not(:last-child)::after { content: ","; }
 #primary-menu a:last-child::after { content: "."; } */
 
-/* #primary-menu .menu-item a::after {
+#primary-menu .menu-item a::after {
     content: '/';
     margin-left: 10px;
-} */
+}
 
-/* #primary-menu .menu-item:last-child a::after {
+#primary-menu .menu-item:last-child a::after {
     content: '';
-} */
+}
 
 #primary-menu .menu-item-has-children .dropdown-menu-toggle {
     padding-right: 0px !important;
@@ -147,8 +147,9 @@ Updated: 2021-11-24 03:09:00
 /* Home */
 .nm-header .uagb-section__overlay,
 .nm-newslatter .uagb-section__overlay {
-    width: 102% !important;
-    margin-left: -15px !important;
+    /* width: 102% !important; */
+    width: 100% !important;
+    /* margin-left: -15px !important; */
 }
 
 .nm-title {
@@ -208,6 +209,10 @@ Updated: 2021-11-24 03:09:00
     color: #817878;
     height: 44px !important;
     width: 80%;
+}
+
+.nm-mail-chimp-widget .email {
+    font-size: 17px;
 }
 
 .nm-mail-chimp .button {
@@ -507,7 +512,8 @@ Updated: 2021-11-24 03:09:00
 .nm-sidbar-table {
     position: fixed;
     background: #fff;
-    width: 360px;
+    /* width: 360px; */
+    width: 315px;
 }
 
 /* .nm-sidbar-table .inside-left-sidebar aside:nth-child(1),
